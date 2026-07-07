@@ -26,4 +26,4 @@ npm i -g github:saeed9321/saidi-agent
 ```
 
 This package contains only the built, minified application — no source.
-Version: 0.2.0
+Version: 1.0.0
