@@ -8,6 +8,19 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.1.0](https://github.com/saeed9321/saidi/compare/v1.0.1...v1.1.0) (2026-07-07)
+
+
+### Features
+
+* **config:** file-backed config store; boot without .env (phase 1) ([292a34c](https://github.com/saeed9321/saidi/commit/292a34c805a213e2e5ce1adde26da01ae512b877))
+* **settings:** manage every .env value from the UI (phase 3) ([d4e60a5](https://github.com/saeed9321/saidi/commit/d4e60a510a5a5490bd2028da237362f7cc33617d))
+
+
+### Bug Fixes
+
+* **doctor:** accurate, prod-aware, non-blocking diagnostics (phase 2) ([8b78260](https://github.com/saeed9321/saidi/commit/8b78260eb77949fd997e0fbd89a7db98bbd59894))
+
 ## [1.0.1](https://github.com/saeed9321/saidi/compare/v1.0.0...v1.0.1) (2026-07-07)
 
 
