@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.2.0](https://github.com/saeed9321/saidi/compare/v1.1.0...v1.2.0) (2026-07-07)
+
+
+### Features
+
+* **import:** copy agents & memory in from another folder ([e6c3509](https://github.com/saeed9321/saidi/commit/e6c3509f20dc9078b3ee6ece2174961b2d339220))
+* **runs:** context-efficiency fixes and completion guardrails ([c39d32c](https://github.com/saeed9321/saidi/commit/c39d32cdb61998becfb9cab2a7d321cf7d658b61))
+
 ## [1.1.0](https://github.com/saeed9321/saidi/compare/v1.0.1...v1.1.0) (2026-07-07)
 
 
