@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.0.1](https://github.com/saeed9321/saidi/compare/v1.0.0...v1.0.1) (2026-07-07)
+
+
+### Bug Fixes
+
+* **doctor:** don't require client node_modules in published installs ([612fe0e](https://github.com/saeed9321/saidi/commit/612fe0eaf99ea32a04f58b1f023c932240a76c23))
+
 ## 1.0.0 (2026-07-07)
 
 
