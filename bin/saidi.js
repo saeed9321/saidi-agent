@@ -1,21 +1,28 @@
 #!/usr/bin/env node
 /**
- * Saidi CLI entry (`saidi`).
+ * Saidi CLI entry (`saidi`) — a small SUPERVISOR around the server.
  *
- * Published installs (from the public `saidi-agent` repo) ship a compiled,
- * source-free bundle at dist/server.js — this boots it with plain Node, no tsx
- * and no TypeScript at runtime. A local source checkout has no dist/ (or sets
- * SAIDI_DEV), so it falls back to running src/orchestrator/server.ts through the
- * tsx loader. Either way it reuses the SAME server bootstrap — no server logic is
- * reimplemented here. It chdir's to the package root (config.ts derives ROOT from
- * process.cwd(), so the server must run from the install dir, not the user's shell
- * cwd), then waits for the port to accept connections and opens the browser.
+ * It runs the actual server as a CHILD process and watches it. Most of the time
+ * the child just runs; but when the user saves a change that needs a fresh boot
+ * (a new MONGODB_URI, re-hydrated env, an agent/memory import), the server exits
+ * with RESTART_EXIT_CODE and this supervisor relaunches it — the old child fully
+ * exits first, so the port is released before the new one binds (no port race).
+ * Any other exit code (clean stop or crash) is propagated and NOT relaunched, and
+ * a crash-loop guard stops runaway restarts.
+ *
+ * Runtime dispatch is unchanged: a published install boots the compiled bundle
+ * (dist/server.js) with plain Node; a source checkout (or SAIDI_DEV) runs
+ * src/orchestrator/server.ts through the tsx loader. The child is told it is
+ * supervised (SAIDI_SUPERVISED=1) so its self-restart path is safe to take. We
+ * chdir to the package root (config.ts derives ROOT from cwd), open the browser
+ * once on the FIRST launch only, and forward SIGINT/SIGTERM to the child.
  */
 import net from 'node:net';
 import path from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
+import { decideRestart } from './supervisor.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 // The server reads memory/, agents/, .env, client/dist relative to process.cwd().
@@ -81,19 +88,66 @@ function waitForListening(timeoutMs = 20000) {
 
 // Choose the runtime: compiled bundle (published) vs tsx + source (local dev).
 const distEntry = path.join(root, 'dist', 'server.js');
+const serverTs = path.join(root, 'src', 'orchestrator', 'server.ts');
 const useDist = existsSync(distEntry) && !process.env.SAIDI_DEV;
+// Compiled bundle → plain node; source checkout → node with the tsx ESM loader.
+// (tsx is a devDependency, present in source checkouts, absent from published installs.)
+const childArgs = useDist ? [distEntry] : ['--import', 'tsx', serverTs];
 
-if (useDist) {
-  await import(pathToFileURL(distEntry).href);
-} else {
-  // Dev / source checkout only — tsx is a devDependency, absent from published installs.
-  const { register } = await import('tsx/esm/api');
-  register();
-  await import(pathToFileURL(path.join(root, 'src', 'orchestrator', 'server.ts')).href);
+let restartTimestamps = [];
+let firstLaunch = true;
+let shuttingDown = false;
+let child = null;
+
+function spawnChild() {
+  child = spawn(process.execPath, childArgs, {
+    stdio: 'inherit',
+    env: { ...process.env, SAIDI_SUPERVISED: '1' },
+  });
+  child.on('error', (err) => {
+    console.error('Failed to launch the Saidi server:', err);
+    process.exit(1);
+  });
+  child.on('exit', onChildExit);
+
+  // Open the browser only once, on the very first launch (prod serves the app on
+  // `port`; dev serves it from Vite at :5317, so we don't open it here).
+  if (firstLaunch) {
+    firstLaunch = false;
+    if (!process.env.SAIDI_DEV) {
+      waitForListening().then(() => openBrowser(`http://localhost:${port}/`));
+    }
+  }
 }
 
-// Dev mode serves the app from Vite (:5317); production serves it on `port`.
-if (!process.env.SAIDI_DEV) {
-  await waitForListening();
-  openBrowser(`http://localhost:${port}/`);
+function onChildExit(code, signal) {
+  child = null;
+  // A forwarded SIGINT/SIGTERM tore the child down → we're on our way out too.
+  if (shuttingDown) { process.exit(typeof code === 'number' ? code : 0); return; }
+
+  const decision = decideRestart(code, restartTimestamps, Date.now());
+  if (decision.action === 'relaunch') {
+    restartTimestamps = decision.restartTimestamps;
+    console.log('\n♻️  Applying your changes — restarting Saidi…\n');
+    spawnChild();
+    return;
+  }
+  if (decision.reason === 'restart-loop') {
+    console.error('\n⛔ Saidi restarted repeatedly in a short window — stopping to avoid a loop.');
+    console.error('   Check your most recent Settings / Secrets change, then start Saidi again.\n');
+  } else if (signal) {
+    console.error(`\nSaidi server stopped (signal ${signal}).\n`);
+  }
+  process.exit(decision.code);
 }
+
+/** Forward a termination signal to the child; when it exits we follow (onChildExit). */
+function forwardSignal(sig) {
+  shuttingDown = true;
+  if (child) child.kill(sig);
+  else process.exit(0);
+}
+process.on('SIGINT', () => forwardSignal('SIGINT'));
+process.on('SIGTERM', () => forwardSignal('SIGTERM'));
+
+spawnChild();

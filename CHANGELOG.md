@@ -8,6 +8,16 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.3.0](https://github.com/saeed9321/saidi/compare/v1.2.0...v1.3.0) (2026-07-09)
+
+
+### Features
+
+* **restart:** self-restart on saves that need a fresh boot ([cbb76dd](https://github.com/saeed9321/saidi/commit/cbb76dd26be9f305c2eb9c234ba32083ae6f0617))
+* **runs:** consult department leads before routing to specialists ([ed6db09](https://github.com/saeed9321/saidi/commit/ed6db097c366df87fdd30347db1637214e2e608a))
+* **runs:** consult dept leads + surface token usage & cost ([aa3d47e](https://github.com/saeed9321/saidi/commit/aa3d47e4e9cbab1c133a4bacb99b8785d478024b))
+* **runs:** surface token usage & cost in logs and UI ([2f10915](https://github.com/saeed9321/saidi/commit/2f10915a0032dd1401d45dfaa02045e474239ee7))
+
 ## [1.2.0](https://github.com/saeed9321/saidi/compare/v1.1.0...v1.2.0) (2026-07-07)
 
 
