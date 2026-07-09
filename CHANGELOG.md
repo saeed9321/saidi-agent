@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.4.0](https://github.com/saeed9321/saidi/compare/v1.3.0...v1.4.0) (2026-07-09)
+
+
+### Features
+
+* add marketplace storefront and restructure settings ([4d24f6e](https://github.com/saeed9321/saidi/commit/4d24f6e02403481512acdfc9d6d2932bd0fada90))
+* **runs:** department leads orchestrate their own specialists ([67fc75c](https://github.com/saeed9321/saidi/commit/67fc75cde7674a2f52d8bcb1925136345db70601))
+
 ## [1.3.0](https://github.com/saeed9321/saidi/compare/v1.2.0...v1.3.0) (2026-07-09)
 
 
