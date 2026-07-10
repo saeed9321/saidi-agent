@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.5.0](https://github.com/saeed9321/saidi/compare/v1.4.0...v1.5.0) (2026-07-10)
+
+
+### Features
+
+* add reflexes, credits & effort modes, and AI provider selector ([befa2b6](https://github.com/saeed9321/saidi/commit/befa2b6206121809956c81be0b9390f19a41f1cd))
+* **runs:** raw per-call LLM log at memory/runs/&lt;runId&gt;/log.json ([d118bf3](https://github.com/saeed9321/saidi/commit/d118bf39ce48d650fab8ef7bbdbb624937788573))
+
 ## [1.4.0](https://github.com/saeed9321/saidi/compare/v1.3.0...v1.4.0) (2026-07-09)
 
 

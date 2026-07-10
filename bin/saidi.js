@@ -18,6 +18,7 @@
  * once on the FIRST launch only, and forward SIGINT/SIGTERM to the child.
  */
 import net from 'node:net';
+import os from 'node:os';
 import path from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
@@ -25,16 +26,23 @@ import { fileURLToPath } from 'node:url';
 import { decideRestart } from './supervisor.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-// The server reads memory/, agents/, .env, client/dist relative to process.cwd().
-// A global install can be launched from anywhere, so anchor cwd to the package.
+// The server reads .env and client/dist relative to process.cwd(). A global
+// install can be launched from anywhere, so anchor cwd to the package.
 process.chdir(root);
+
+// Persistent state (settings, agents, memory) lives OUTSIDE the package so a
+// `npm i -g` update can't wipe it. Mirror config.ts's resolveDataDir():
+// SAIDI_HOME → ~/.saidi → (dev) the package root.
+const dataDir = process.env.SAIDI_HOME?.trim()
+  ? path.resolve(process.env.SAIDI_HOME.trim())
+  : process.env.SAIDI_DEV ? root : path.join(os.homedir(), '.saidi');
 
 // Read a value from config/settings.json (the file-backed store). Best-effort:
 // the server resolves the same way (config.ts), so the browser opens the right URL
 // even with no .env. Real env still wins below.
 function settingsValue(key) {
   try {
-    const file = path.join(root, 'config', 'settings.json');
+    const file = path.join(dataDir, 'config', 'settings.json');
     if (!existsSync(file)) return undefined;
     return JSON.parse(readFileSync(file, 'utf8'))?.[key];
   } catch {
