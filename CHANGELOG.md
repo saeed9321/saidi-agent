@@ -8,6 +8,19 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.6.0](https://github.com/saeed9321/saidi/compare/v1.5.0...v1.6.0) (2026-07-11)
+
+
+### Features
+
+* implement robust release note formatting and provider execution scoping for agent runs ([873b190](https://github.com/saeed9321/saidi/commit/873b190625b3f19420b52d15e6b63d77941047f0))
+* implement webhook management routes, add a centralized cron service, and expand theme selection palette ([26f7d05](https://github.com/saeed9321/saidi/commit/26f7d05fa3343be8df4e466ce3c54bd6c491aaa6))
+
+
+### Bug Fixes
+
+* set width to 100% in Panels container to ensure proper layout expansion ([f1277d4](https://github.com/saeed9321/saidi/commit/f1277d4a1f3d4bed52730c3849c79d0d13bb230c))
+
 ## [1.5.0](https://github.com/saeed9321/saidi/compare/v1.4.0...v1.5.0) (2026-07-10)
 
 
