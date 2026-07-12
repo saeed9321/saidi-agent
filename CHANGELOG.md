@@ -8,6 +8,15 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.7.0](https://github.com/saeed9321/saidi/compare/v1.6.0...v1.7.0) (2026-07-12)
+
+
+### Features
+
+* add context auto-compaction settings, introduce store reload methods, and implement run-files API route ([c13fa01](https://github.com/saeed9321/saidi/commit/c13fa011f465d8f639b86bcdf78800cc804ccff8))
+* add persistence fields to run model and sync configuration updates to the store ([5efd37a](https://github.com/saeed9321/saidi/commit/5efd37af8404a07082ef866c7d9a6aca67d5dd11))
+* implement credit debiting for chat-based agent delegations ([4186f9d](https://github.com/saeed9321/saidi/commit/4186f9d5ad720963dd16b4b36bacac2b45f72d8d))
+
 ## [1.6.0](https://github.com/saeed9321/saidi/compare/v1.5.0...v1.6.0) (2026-07-11)
 
 
