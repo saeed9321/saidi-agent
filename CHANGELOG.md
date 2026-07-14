@@ -8,6 +8,16 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.8.0](https://github.com/saeed9321/saidi/compare/v1.7.0...v1.8.0) (2026-07-14)
+
+
+### Features
+
+* add boot-time configuration summary for transparent settings resolution and diagnostic logging ([3eb93ec](https://github.com/saeed9321/saidi/commit/3eb93ec91dcf7756054a5c1819f832fdea08a0b7))
+* **saas:** cloud frontend (auth gate, org wizard, TEAM + PLATFORM tabs, user menu) and cloud migration script ([2fd92cd](https://github.com/saeed9321/saidi/commit/2fd92cdab1ffa84e8348c3b8ae1efb6180d41ede))
+* **saas:** cloud/local mode split, tenant context, per-org stores, auth stack, org/admin API, governance gates ([631820a](https://github.com/saeed9321/saidi/commit/631820a1efbc31bd22005c00cfd4677a3411c29d))
+* **saas:** MongoDB as single source of truth + no-fallback loading + run-sandbox foundation ([3d1a52b](https://github.com/saeed9321/saidi/commit/3d1a52b2a1c763549d65a90089e0d714e9931b6b))
+
 ## [1.7.0](https://github.com/saeed9321/saidi/compare/v1.6.0...v1.7.0) (2026-07-12)
 
 
