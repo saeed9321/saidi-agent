@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.9.0](https://github.com/saeed9321/saidi/compare/v1.8.0...v1.9.0) (2026-07-14)
+
+
+### Features
+
+* implement message attachments system and unified stick-to-bottom scroll behavior for chat and run views. ([64a6022](https://github.com/saeed9321/saidi/commit/64a602237a66abbcdce72d7e5c15fdbbf1079a7f))
+
 ## [1.8.0](https://github.com/saeed9321/saidi/compare/v1.7.0...v1.8.0) (2026-07-14)
 
 
