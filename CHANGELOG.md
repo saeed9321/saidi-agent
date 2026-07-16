@@ -8,6 +8,37 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.10.0](https://github.com/saeed9321/saidi/compare/v1.9.0...v1.10.0) (2026-07-16)
+
+
+### Features
+
+* add ChatSkeleton component to display loading state during chat transitions ([b88cc07](https://github.com/saeed9321/saidi/commit/b88cc07b5446ee0a04283a8070be2738d1d133f0))
+* add toolDetail helper to provide granular tool call summaries in sandbox event status messages ([7fc1d87](https://github.com/saeed9321/saidi/commit/7fc1d8723dd07e0da48a6a701ea41f25f627b971))
+* authenticate GitHub requests using user's marketplace session token to improve API quota utilization ([0bacffe](https://github.com/saeed9321/saidi/commit/0bacffefb34a9848d82323d73f7305db3b8e11f9))
+* enforce thinking token budget caps based on the current effort mode ([26fec56](https://github.com/saeed9321/saidi/commit/26fec5655bdf421cba19e53136d40ec5ba36510e))
+* implement per-org channel configuration store with MongoDB and … ([3325936](https://github.com/saeed9321/saidi/commit/3325936d626eb89b2b6b2d2df9fcd545b2f9eca6))
+* implement per-org channel configuration store with MongoDB and disk persistence support ([432c4f5](https://github.com/saeed9321/saidi/commit/432c4f53bc0a9bda2c5bfaba4c6bf8e82e8a06bf))
+* implement per-run docker container pool for agent isolation and persistent workspace state ([9d24dc6](https://github.com/saeed9321/saidi/commit/9d24dc68ac446310fda9b168cdb8e81ecc533e43))
+* implement per-turn cost and step guardrails in system settings to prevent runaway agent loops ([fb6b6cb](https://github.com/saeed9321/saidi/commit/fb6b6cbe5914e8c5242a9d9bd832c1104ecded72))
+* implement UI feedback and error signaling for failed tool results ([1f314be](https://github.com/saeed9321/saidi/commit/1f314bef0a0461c236637b79e5f1b3ad2a9fe082))
+* make all client pages responsive on mobile screens ([8978af5](https://github.com/saeed9321/saidi/commit/8978af5f9ecd263b71eda2d4944b47d4ca10fa60))
+
+
+### Bug Fixes
+
+* **cost:** cap extended-thinking tokens per effort tier at both Claude call sites ([acb5698](https://github.com/saeed9321/saidi/commit/acb56989a02ba2ef482322061a5529131c2accad))
+* **mobile:** constrain new-run modal to viewport; wrap run-detail header toolbar ([78752ad](https://github.com/saeed9321/saidi/commit/78752ad1cf5770bdcd8b18614bdac8c6c43f5bb5))
+* **mobile:** give composer textarea its own full-width line above controls ([0f0ca1f](https://github.com/saeed9321/saidi/commit/0f0ca1fd1e6730e1916206040e5c0f6e50867d2d))
+* **mobile:** hide orbit pan-zoom hint and wrap composer row so Send never clips ([a490c58](https://github.com/saeed9321/saidi/commit/a490c58826149c2c4830f634cb3e470435fc5cb0))
+* **mobile:** keep composer on one line; trim fixed width so Send fits at 320px ([b39cd50](https://github.com/saeed9321/saidi/commit/b39cd504f167d02d76bfa797debdd1139a71ba22))
+* **mobile:** let run-detail action toolbar wrap to full width ([3cb109b](https://github.com/saeed9321/saidi/commit/3cb109b1bfa67cd729f2acb7bf193abe7092788e))
+* **mobile:** prevent iOS input focus-zoom by forcing &gt;=16px font on mobile form controls ([024b36d](https://github.com/saeed9321/saidi/commit/024b36d9e644d177d74f6ff96ca6f51dd898f212))
+* **mobile:** stop full-width content clipping and collapse Crons grid on phones ([d6d9d0c](https://github.com/saeed9321/saidi/commit/d6d9d0c21b91a2c6abbe3cb4218d5759fa7f987c))
+* **onboarding:** stack check rows on mobile so detail column doesn't squeeze ([34bca17](https://github.com/saeed9321/saidi/commit/34bca17585d57abe84fc2fef449d76f6e04bf4d0))
+* reconcile cross-file wirings (streaming shared-viewers, chat setShared ACL) ([7f39533](https://github.com/saeed9321/saidi/commit/7f39533785dad7a916fc7c0849af8de87d5120ea))
+* **security:** close two re-audit residuals (WS default-chat ACL, SSRF IPv6) ([778af5f](https://github.com/saeed9321/saidi/commit/778af5fe5661dbf67a3bcbd2377fd682d202ee65))
+
 ## [1.9.0](https://github.com/saeed9321/saidi/compare/v1.8.0...v1.9.0) (2026-07-14)
 
 
