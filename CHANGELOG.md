@@ -8,6 +8,21 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.11.0](https://github.com/saeed9321/saidi/compare/v1.10.0...v1.11.0) (2026-07-19)
+
+
+### Features
+
+* consolidate creative roster, retire duplicate agents, update agent documentation, and improve custom agent resolution logic. ([c6b8849](https://github.com/saeed9321/saidi/commit/c6b884921dec61c103b1bfba80243ef1ee567ad6))
+* implement per-action auto-approve settings, add persistent chat transcript loading, and fix websocket conversation routing security. ([c7139aa](https://github.com/saeed9321/saidi/commit/c7139aa4f53c38cecf262b01bcae53e9ec7d15f7))
+* implement retry logic for agent queries and scale marketplace r… ([5d2261b](https://github.com/saeed9321/saidi/commit/5d2261b642322c681fae28ebd7f65a8e7b63d573))
+* implement retry logic for agent queries and scale marketplace resource limits for multi-agent departments. ([995c298](https://github.com/saeed9321/saidi/commit/995c2985001695662663a7c58eff0cfd1cf25ffc))
+
+
+### Bug Fixes
+
+* **runs:** surface delegated-agent deliverables in the run chat ([73f7da6](https://github.com/saeed9321/saidi/commit/73f7da677254d3c0bc99f9bbf0a1825f1bb19ca9))
+
 ## [1.10.0](https://github.com/saeed9321/saidi/compare/v1.9.0...v1.10.0) (2026-07-16)
 
 
