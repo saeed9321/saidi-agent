@@ -8,6 +8,20 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.12.0](https://github.com/saeed9321/saidi/compare/v1.11.0...v1.12.0) (2026-07-26)
+
+
+### Features
+
+* add capability to remove skills and detach MCP servers from agents via UI ([a61cf6b](https://github.com/saeed9321/saidi/commit/a61cf6b248cd2702cd954fb391be0d8df68d8a1e))
+* add task tracking to run engine via checklist item updates and task ID association ([de7de23](https://github.com/saeed9321/saidi/commit/de7de23102c64eea40c010a31d2ebe6f83e8922b))
+* implement late-connection database hydration and state recovery for seamless orchestrator re-initialization ([32b6db9](https://github.com/saeed9321/saidi/commit/32b6db9190ed75bf6f58530a1eeac50fda2ee059))
+
+
+### Bug Fixes
+
+* **telegram:** deliver full run results and show live typing indicators ([ee37f26](https://github.com/saeed9321/saidi/commit/ee37f262f042eb9fc1369c76539557876255337b))
+
 ## [1.11.0](https://github.com/saeed9321/saidi/compare/v1.10.0...v1.11.0) (2026-07-19)
 
 
