@@ -21,9 +21,9 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { decideRestart } from './supervisor.js';
+import { decideRestart, HEALTHY_MS } from './supervisor.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 // The server reads .env and client/dist relative to process.cwd(). A global
@@ -57,6 +57,37 @@ const cfgPort = Number(settingsValue('port'));
 const port = Number.isFinite(envPort) && envPort > 0 ? envPort
   : Number.isInteger(cfgPort) && cfgPort > 0 && cfgPort <= 65535 ? cfgPort
   : 4317;
+
+// ── Auto-update ───────────────────────────────────────────────────────────────
+// The server asks for an update by exiting with UPDATE_EXIT_CODE (see auto-update.ts).
+// The install runs HERE, between spawns, because `npm i -g` deletes and rewrites this
+// very package directory — doing it in-process would swap the code under a live server.
+const DIST_PKG = 'github:saeed9321/saidi-agent';
+
+/** Version currently installed at `root`. Read BEFORE an install to capture the
+ *  rollback target, and again after, to name the version we landed on. */
+function installedVersion() {
+  try {
+    return JSON.parse(readFileSync(path.join(root, 'package.json'), 'utf8'))?.version ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/** Run `npm i -g <ref>` synchronously — deliberately blocking, so nothing else
+ *  happens between the old child exiting and the new one starting. Returns true on
+ *  success; a failure (offline, EACCES on a root-owned prefix) is non-fatal and
+ *  leaves the current version in place. */
+function npmInstall(ref) {
+  const isWin = process.platform === 'win32';
+  const res = spawnSync(isWin ? 'npm.cmd' : 'npm', ['i', '-g', ref], {
+    stdio: 'inherit',
+    shell: isWin, // npm is a .cmd shim on Windows — spawnSync can't launch it directly
+  });
+  // npm may have replaced the package dir out from under our cwd; re-anchor it.
+  try { process.chdir(root); } catch { /* child spawns use absolute paths regardless */ }
+  return res.status === 0;
+}
 
 /** Open a URL in the OS default browser (no dependency): macOS `open`,
  *  Windows `start`, Linux `xdg-open`. Best-effort — failure never throws. */
@@ -106,11 +137,20 @@ let restartTimestamps = [];
 let firstLaunch = true;
 let shuttingDown = false;
 let child = null;
+// Rollback safety-net: the version to reinstall if the child we just updated to
+// dies before HEALTHY_MS (null = disarmed), plus what we updated to (for the log)
+// and when the current child started.
+let rollbackTo = null;
+let updatedTo = null;
+let childStartedAt = null;
 
 function spawnChild() {
+  childStartedAt = Date.now();
   child = spawn(process.execPath, childArgs, {
     stdio: 'inherit',
-    env: { ...process.env, SAIDI_SUPERVISED: '1' },
+    // SAIDI_RUNTIME lets the server tell a published install (safe to self-update)
+    // from a source checkout (where `npm i -g` would not touch the running code).
+    env: { ...process.env, SAIDI_SUPERVISED: '1', SAIDI_RUNTIME: useDist ? 'dist' : 'src' },
   });
   child.on('error', (err) => {
     console.error('Failed to launch the Saidi server:', err);
@@ -133,7 +173,44 @@ function onChildExit(code, signal) {
   // A forwarded SIGINT/SIGTERM tore the child down → we're on our way out too.
   if (shuttingDown) { process.exit(typeof code === 'number' ? code : 0); return; }
 
-  const decision = decideRestart(code, restartTimestamps, Date.now());
+  const now = Date.now();
+  // The updated child stayed up long enough to prove itself → disarm the net.
+  if (rollbackTo && childStartedAt !== null && now - childStartedAt >= HEALTHY_MS) {
+    rollbackTo = null;
+    updatedTo = null;
+  }
+
+  const decision = decideRestart(code, restartTimestamps, now, { rollbackTo, childStartedAt });
+
+  if (decision.action === 'update') {
+    restartTimestamps = decision.restartTimestamps;
+    const prev = installedVersion();
+    console.log('\n⬇️  Installing the Saidi update…\n');
+    if (npmInstall(DIST_PKG)) {
+      updatedTo = installedVersion();
+      rollbackTo = prev; // arm the net until the new version proves itself
+      console.log(`\n♻️  Updated ${prev ?? '?'} → ${updatedTo ?? '?'} — restarting Saidi…\n`);
+    } else {
+      console.error('\n⚠️  Could not install the update — staying on the current version.');
+      console.error(`   Run it yourself with: npm i -g ${DIST_PKG}\n`);
+    }
+    spawnChild();
+    return;
+  }
+
+  if (decision.action === 'rollback') {
+    console.error(`\n⛔ Saidi ${updatedTo ?? '(updated version)'} failed to start — rolling back to ${decision.version}…\n`);
+    rollbackTo = null; // one-shot: if the old version also fails, propagate normally
+    updatedTo = null;
+    if (!npmInstall(`${DIST_PKG}#v${decision.version}`)) {
+      console.error(`\n⛔ Rollback failed. Reinstall by hand: npm i -g ${DIST_PKG}#v${decision.version}\n`);
+      process.exit(1);
+    }
+    restartTimestamps = []; // the bad version's restarts must not count against the good one
+    spawnChild();
+    return;
+  }
+
   if (decision.action === 'relaunch') {
     restartTimestamps = decision.restartTimestamps;
     console.log('\n♻️  Applying your changes — restarting Saidi…\n');
