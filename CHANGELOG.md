@@ -8,6 +8,19 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.14.0](https://github.com/saeed9321/saidi/compare/v1.13.1...v1.14.0) (2026-07-30)
+
+
+### Features
+
+* implement model-alias pinning to ensure sub-agents resolve correctly with custom endpoints ([2df726d](https://github.com/saeed9321/saidi/commit/2df726d734745438043ac0797aac080971952a49))
+* implement task-level guard configuration and automated mechanical check execution for run validation ([78cba09](https://github.com/saeed9321/saidi/commit/78cba09e1eae15c12cbe37f6d8c75a6072006826))
+
+
+### Bug Fixes
+
+* patch liveness leaks by preventing ownerless status from lighting nodes and add Docker orchestration support ([743564b](https://github.com/saeed9321/saidi/commit/743564bdf0a968f8b371cf3060bac966c2f9101b))
+
 ## [1.13.1](https://github.com/saeed9321/saidi/compare/v1.13.0...v1.13.1) (2026-07-28)
 
 
