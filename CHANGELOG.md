@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.16.1](https://github.com/saeed9321/saidi/compare/v1.16.0...v1.16.1) (2026-07-31)
+
+
+### Bug Fixes
+
+* increase header z-index to resolve stacking context issue with Actions menu ([7724386](https://github.com/saeed9321/saidi/commit/7724386c1abc20ae5bf85b172d9881fcc36d7186))
+
 ## [1.16.0](https://github.com/saeed9321/saidi/compare/v1.15.0...v1.16.0) (2026-07-31)
 
 
