@@ -8,6 +8,20 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.17.0](https://github.com/saeed9321/saidi/compare/v1.16.1...v1.17.0) (2026-07-31)
+
+
+### Features
+
+* add descriptive hints to SystemSettings dropdown components ([dfc84d4](https://github.com/saeed9321/saidi/commit/dfc84d41b33185cbabe324e5d2d7569227fa6326))
+* conditionally hide session management settings in SystemSettings based on optimization and adaptive session state ([ad6ffdc](https://github.com/saeed9321/saidi/commit/ad6ffdc315922fd173022b87d6b9bbfeb989d33a))
+* introduce git worktree support for concurrent run execution per repository ([4b95654](https://github.com/saeed9321/saidi/commit/4b95654f9f056f03f2c75acb0f864970aeeb0c80))
+
+
+### Bug Fixes
+
+* update VERIFIER_THINKING_BUDGET to 1024 to satisfy the provider's API minimum requirements ([138311d](https://github.com/saeed9321/saidi/commit/138311d6c7eff24a2f6f9cabc13c022e2e13001d))
+
 ## [1.16.1](https://github.com/saeed9321/saidi/compare/v1.16.0...v1.16.1) (2026-07-31)
 
 
