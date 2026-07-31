@@ -8,6 +8,20 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.15.0](https://github.com/saeed9321/saidi/compare/v1.14.0...v1.15.0) (2026-07-31)
+
+
+### Features
+
+* implement smart context clipping to preserve critical verification evidence and fix data loss during run replanning ([adae1ed](https://github.com/saeed9321/saidi/commit/adae1ed95305c97a68785786bd19279511109fc3))
+
+
+### Bug Fixes
+
+* **runs:** bind mechanical checks to the criteria they prove, and gate the commands they run ([3e41fd4](https://github.com/saeed9321/saidi/commit/3e41fd4762298207fe4879a3c363c766927fa8f6))
+* **runs:** meter the verifier, separate gate failures from work failures, and unify attempt policy ([d753cbb](https://github.com/saeed9321/saidi/commit/d753cbbf50d58c45ca1d259addfb4a4a0c02e400))
+* **runs:** verify the work, not the base branch; settle approved work; make model checks supplementary ([bb6bd2e](https://github.com/saeed9321/saidi/commit/bb6bd2ea044702122f8f9d7853074edea4e2012e))
+
 ## [1.14.0](https://github.com/saeed9321/saidi/compare/v1.13.1...v1.14.0) (2026-07-30)
 
 
