@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.16.0](https://github.com/saeed9321/saidi/compare/v1.15.0...v1.16.0) (2026-07-31)
+
+
+### Features
+
+* implement run management system with new UI components and Telegram conversation orchestration logic ([9602bd4](https://github.com/saeed9321/saidi/commit/9602bd4cf40a2b01eb39569a0738d795c15ac117))
+* implement run optimization, memory snapshotting, and task-based evidence tracking across the orchestrator engine ([7b57623](https://github.com/saeed9321/saidi/commit/7b57623148740cdd8786380b3d1864c9aa188342))
+
 ## [1.15.0](https://github.com/saeed9321/saidi/compare/v1.14.0...v1.15.0) (2026-07-31)
 
 
