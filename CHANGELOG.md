@@ -8,6 +8,17 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.18.0](https://github.com/saeed9321/saidi/compare/v1.17.0...v1.18.0) (2026-08-01)
+
+
+### Features
+
+* add agent packing logic with cost-based metering and migration support ([10ac4eb](https://github.com/saeed9321/saidi/commit/10ac4eb2149616ad746dc1a20996c7128a99623c))
+* add model-based spend tracking to RunContext and implement self-assessment logic for autonomous runs. ([fc80e9f](https://github.com/saeed9321/saidi/commit/fc80e9fd831a4123e5cc2e4bcfc38ca26440a45b))
+* add per-message cost apportionment and upgrade provider testing to support streaming probes ([28a9af5](https://github.com/saeed9321/saidi/commit/28a9af5e282c191916665fe974c0dd73770f6bfc))
+* implement live endpoint connectivity testing for provider profiles via a new /api/providers/test route and UI probe button ([bd5c047](https://github.com/saeed9321/saidi/commit/bd5c0470dc640fbdc4d96a948da1edd8daddb8c4))
+* implement real-time reasoning (thinking) display with buffered scratchpad support across client and orchestrator ([7f1d351](https://github.com/saeed9321/saidi/commit/7f1d351d700005f542a3e43f0c139917473f50a0))
+
 ## [1.17.0](https://github.com/saeed9321/saidi/compare/v1.16.1...v1.17.0) (2026-07-31)
 
 
