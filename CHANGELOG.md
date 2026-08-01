@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.19.0](https://github.com/saeed9321/saidi/compare/v1.18.0...v1.19.0) (2026-08-01)
+
+
+### Features
+
+* add unreported usage flag and filter ephemeral SDK events to correctly account for unpriced LLM calls ([94affe4](https://github.com/saeed9321/saidi/commit/94affe4d4bfa619cc6ba11e0cda808ddebeeb516))
+
 ## [1.18.0](https://github.com/saeed9321/saidi/compare/v1.17.0...v1.18.0) (2026-08-01)
 
 
