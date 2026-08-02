@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.19.1](https://github.com/saeed9321/saidi/compare/v1.19.0...v1.19.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* prevent unhandled rejections in chat switching and rectify MongoDB connection pool exhaustion by properly managing change stream lifecycles ([eafc6e1](https://github.com/saeed9321/saidi/commit/eafc6e1977d24f175aa8fcc216ee0c0407b5f430))
+
 ## [1.19.0](https://github.com/saeed9321/saidi/compare/v1.18.0...v1.19.0) (2026-08-01)
 
 
