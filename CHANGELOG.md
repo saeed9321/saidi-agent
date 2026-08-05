@@ -8,6 +8,37 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.20.0](https://github.com/saeed9321/saidi/compare/v1.19.1...v1.20.0) (2026-08-05)
+
+
+### Features
+
+* add admin capability to join organizations and refine agent prompt instructions regarding approval gates ([3eacc85](https://github.com/saeed9321/saidi/commit/3eacc857b0087aeb2eea0514a33b7cdd2fde881b))
+* add cloud deployment mode with docker-compose and configuration example ([7eee56d](https://github.com/saeed9321/saidi/commit/7eee56db515c4ce199e567543e5345981bb7c93f))
+* add primeNeedsRehydrate field to Run model to ensure persistence across sessions ([a426e32](https://github.com/saeed9321/saidi/commit/a426e32b68b87995b4523b645327ce042290b864))
+* add workspace admin UI to list and delete personal agents ([b111af9](https://github.com/saeed9321/saidi/commit/b111af9a3afd117470d975b96513b8f5a6e3dae4))
+* **cloud:** isolate tenants with per-org uids and authenticated Mongo ([34f3954](https://github.com/saeed9321/saidi/commit/34f395444dfa5fb3cf7f401b5b6638a07c6d3439))
+* implement agent scope copying, marketplace rate-limiting, and automated chat titling infrastructure. ([ec4a510](https://github.com/saeed9321/saidi/commit/ec4a5101a8fcddf2d83b8369861df5568b89a610))
+* implement chronological feed ordering using server-side epoch timestamps and add associated test suite ([9b45dbf](https://github.com/saeed9321/saidi/commit/9b45dbffbe0a3c1ffd24ef93ede3e0e2f8559bf4))
+* implement cross-directory session resumption by migrating transcripts to the current working directory ([022d7d3](https://github.com/saeed9321/saidi/commit/022d7d349fa64a8603fc27155d860a0c0a120894))
+* initialize .mex directory with comprehensive documentation, architectural context, and pattern templates ([832c57d](https://github.com/saeed9321/saidi/commit/832c57d07735c3e294d9771ddad468115b9f3d02))
+* integrate VitePress documentation site into the main application build and server routing ([c9b4088](https://github.com/saeed9321/saidi/commit/c9b40882822f2e4e2afec2e57469a52f666e93f2))
+* **memory:** cross-member recall, and fix the team-roster tool being unreachable ([507da24](https://github.com/saeed9321/saidi/commit/507da24c6e45fdb73cf63f564a90e51725d30f49))
+* migrate custom endpoint thinking configuration from global setting to per-effort provider profile setting ([0872736](https://github.com/saeed9321/saidi/commit/08727369162e3b137396c0989d738663dba1e7a3))
+
+
+### Bug Fixes
+
+* **chat:** stop PRIME promising an approval card it never raises ([594c291](https://github.com/saeed9321/saidi/commit/594c291077b73bcba5ae8fc36bcd2bc8ea5f2c02))
+* **cloud:** base the image on Debian so agents can run glibc binaries ([ed07e3d](https://github.com/saeed9321/saidi/commit/ed07e3de85b174a063c9e11570636d5989830d1d))
+* **cloud:** cap the saidi container's memory and cpu ([b2efc9c](https://github.com/saeed9321/saidi/commit/b2efc9c8db8450b1789d5a4a57822909d9bb85f8))
+* **cloud:** install bash so agents can run commands at all, plus chromium for PDFs ([4390ece](https://github.com/saeed9321/saidi/commit/4390ece5d3c66093d31bc451f148af8ccd78414e))
+* **cloud:** run mongo as an initialised single-node replica set ([e96d6e8](https://github.com/saeed9321/saidi/commit/e96d6e88cb662c976cdf88917a09dde087b8a5cb))
+* **cloud:** serve attachments and run files, which could never send the org header ([36fbde1](https://github.com/saeed9321/saidi/commit/36fbde18d0a12bfa8fb69d503925082546f1484a))
+* **cloud:** use CHROMIUM_USER_FLAGS so --no-sandbox actually reaches chromium ([074bb28](https://github.com/saeed9321/saidi/commit/074bb28bd7c66c46763df2518de99a5721803412))
+* **docs-site:** disable lastUpdated so the cloud image builds ([b071354](https://github.com/saeed9321/saidi/commit/b071354dc4e54efdc8f3b4daf4486e23d6c906c0))
+* reset orphaned tasks to pending on process startup to prevent deadlocks ([81b53df](https://github.com/saeed9321/saidi/commit/81b53df880b6f315c18c8a2736a54b823685cda4))
+
 ## [1.19.1](https://github.com/saeed9321/saidi/compare/v1.19.0...v1.19.1) (2026-08-02)
 
 

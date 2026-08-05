@@ -30,6 +30,13 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 // install can be launched from anywhere, so anchor cwd to the package.
 process.chdir(root);
 
+// Group-writable by default, inherited by the server child. Under cloud uid
+// isolation the supervisor runs as root and creates directories inside org trees
+// that the org's own (non-root) agents must then write; the setgid bit on those
+// trees carries the group down, and this is what keeps the write bit on. Harmless
+// everywhere else — 002 only ever adds group-write, never other-access.
+process.umask(0o002);
+
 // Persistent state (settings, agents, memory) lives OUTSIDE the package so a
 // `npm i -g` update can't wipe it. Mirror config.ts's resolveDataDir():
 // SAIDI_HOME → ~/.saidi → (dev) the package root.
@@ -97,7 +104,12 @@ function openBrowser(url) {
     : 'xdg-open';
   const args = process.platform === 'win32' ? ['/c', 'start', '', url] : [url];
   try {
-    spawn(cmd, args, { stdio: 'ignore', detached: true }).unref();
+    const child = spawn(cmd, args, { stdio: 'ignore', detached: true });
+    // A missing binary is reported ASYNCHRONOUSLY: without this listener the ENOENT
+    // becomes an unhandled 'error' event and takes the launcher down with it. That
+    // is the normal case in a container, where there is no xdg-open.
+    child.on('error', () => {});
+    child.unref();
   } catch {
     /* headless / no browser — the server URL is already printed to the console */
   }
