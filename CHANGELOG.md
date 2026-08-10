@@ -8,6 +8,76 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.21.0](https://github.com/saeed9321/saidi/compare/v1.20.0...v1.21.0) (2026-08-10)
+
+
+### Features
+
+* add markdown preview support for run files in RunFiles component ([2f41753](https://github.com/saeed9321/saidi/commit/2f41753fb5ea13427b2383045f77c602a841d35f))
+* add router provider support and implement tenant-scoped provider profile overlays ([c4526fa](https://github.com/saeed9321/saidi/commit/c4526fad251aa4939f24c34e5c66c7eb3e77c9f7))
+* **billing:** count BYO spend against the member's monthly budget ([ce2ace6](https://github.com/saeed9321/saidi/commit/ce2ace6de85446c1037292a39ce31178b8efb7c3))
+* **byo:** a model is chosen from the list, never typed ([fa9e248](https://github.com/saeed9321/saidi/commit/fa9e248f41f41d327eec08d035667abe78f45b67))
+* **byo:** a shared admin account, and a member's choice of which one runs ([72424fb](https://github.com/saeed9321/saidi/commit/72424fb785cd2248380eb8304a522d8b313de7d0))
+* **byo:** capture the SDK rate_limit_event per member and expose it ([0e00935](https://github.com/saeed9321/saidi/commit/0e00935859327671fd163de248051fbf6102b2c6))
+* **byo:** fetch the live model catalogue from the gateway and pin from it in the UI ([1c16f56](https://github.com/saeed9321/saidi/commit/1c16f5677f58d6a9bd70fc96a331b4d889ead148))
+* **byo:** finish the AI Account states, catalogue refresh and the plain-language copy ([3040b4d](https://github.com/saeed9321/saidi/commit/3040b4d9e5c07fba8fa80ec061744de38043f30b))
+* **byo:** gate connecting an AI account, and expose the four choices ([61c9633](https://github.com/saeed9321/saidi/commit/61c9633be986717f66c71af14a92cf3f96fe5ad6))
+* **byo:** make the 9router sidecar health-gated and its base URL configurable ([62950c8](https://github.com/saeed9321/saidi/commit/62950c8e70f5fa7cc6ff578e77aced494f6e5517))
+* **byo:** per-member Codex proxy for multi-member cloud ([37dbad5](https://github.com/saeed9321/saidi/commit/37dbad5f1f1f58176fa826a1f5980b24f9745f23))
+* **byo:** persist a member's model and reasoning-effort pin and read it at execution time ([bee0b83](https://github.com/saeed9321/saidi/commit/bee0b83779b790138a46f3bec207c89ac692dac8))
+* **byo:** refresh the maintained Codex list to the GPT-5.6 generation ([6728842](https://github.com/saeed9321/saidi/commit/6728842109af2164efa8f580c7b83b9c7012ffae))
+* **byo:** report the real subscription ceiling instead of an empty card ([22e3233](https://github.com/saeed9321/saidi/commit/22e32336f859cf51b73535c985e33dd128deebc3))
+* **byo:** route ChatGPT traffic to the 9router sidecar on single-owner installs ([77da2a0](https://github.com/saeed9321/saidi/commit/77da2a041febcbb29dd762f90a3ba98355ffec99))
+* **client:** a member picks Saidi, Claude or ChatGPT — nothing else ([a2aad4f](https://github.com/saeed9321/saidi/commit/a2aad4f0a8f2ce4d9f46d720029e26ba5e7186de))
+* **client:** choose which of the four AI accounts runs your work ([1cb8aa2](https://github.com/saeed9321/saidi/commit/1cb8aa2b2346be44f81731db7bc02e250c801832))
+* **client:** connect a subscription by signing in, not by pasting a token ([c5fd891](https://github.com/saeed9321/saidi/commit/c5fd8918774ed4c4dbcf151620496207b71d9420))
+* **client:** disclose member-credential precedence and offer it at onboarding ([45da4c1](https://github.com/saeed9321/saidi/commit/45da4c1df8b17a03243ac72365b428bee8b98fa9))
+* **client:** hide the workspace balance from a member their runs never charge ([7c88acb](https://github.com/saeed9321/saidi/commit/7c88acb00a63094af2bfc8b3b8619d21a55a01ca))
+* **client:** make Your AI account readable, and select-only ([2040b93](https://github.com/saeed9321/saidi/commit/2040b934c16521da4d3347480b09a4abb04ab855))
+* **client:** show admins who is running on their own AI account ([3b7b755](https://github.com/saeed9321/saidi/commit/3b7b755ab26cc47667594567e629477a9acaae05))
+* **client:** show the Claude subscription window, reset time, and utilization only when reported ([d546188](https://github.com/saeed9321/saidi/commit/d54618861feee6c34bd6df23e8e997bbb2f9488a))
+* **client:** tell a member their own AI account was disconnected ([54cbec5](https://github.com/saeed9321/saidi/commit/54cbec5b9c32c30950db074a053a5cb1a0213c9f))
+* **client:** the member-facing "Your AI account" screen ([6b2900e](https://github.com/saeed9321/saidi/commit/6b2900ec9c1ef1181eee636679c547ef46a33f4b))
+* **client:** types, API client and nav for the member AI-account screen ([c2ac251](https://github.com/saeed9321/saidi/commit/c2ac2517820c05b59ef0fc2913ab88c9a518859b))
+* **cloud:** an admin view of who is running on their own AI account ([cb7dbf4](https://github.com/saeed9321/saidi/commit/cb7dbf437b1d0687e767a03e6834c7d727c87644))
+* **cloud:** member-facing credential API with a live pre-save probe ([d2ef65a](https://github.com/saeed9321/saidi/commit/d2ef65a5a6fa8ad2abd489ab7918752e4443a695))
+* **cloud:** open self-serve signup with a free 3-seat workspace ([01464a3](https://github.com/saeed9321/saidi/commit/01464a35d2fe9dafadbfec81fee6878456d373da))
+* **cloud:** per-member provider credentials (BYO subscription, Path A) ([1e641bf](https://github.com/saeed9321/saidi/commit/1e641bfac0369df160bfc095c90c9d50e3be2250))
+* **cloud:** per-member usage metering and an honest quota surface ([410fc30](https://github.com/saeed9321/saidi/commit/410fc3069b15dfeecc9257767efdefbe3b68ec6e))
+* **cloud:** retire a member credential the provider rejects ([e041e18](https://github.com/saeed9321/saidi/commit/e041e183eeb315875ac9d38e77282dbd7525ba06))
+* **credentials:** personal subscriptions only, and never bill the org for them ([170e115](https://github.com/saeed9321/saidi/commit/170e11504367d0e1a73924de6ad105b12605e12a))
+* enhance landing page interactivity with pointer effects and improve project documentation by removing sandbox concepts and refining API references. ([4051b91](https://github.com/saeed9321/saidi/commit/4051b91e2e54590701baf3991d303d0a98eae440))
+* implement durable run queues and automated resume on server restart ([d27a680](https://github.com/saeed9321/saidi/commit/d27a680c51ac0aab4d7a207632b0bde744c0344f))
+* optimize provider selection UI, update credential isolation, and add associated test suite ([495ef91](https://github.com/saeed9321/saidi/commit/495ef91a10c10a9d9a0f47db60ae68e244724c92))
+* **org:** let an admin revoke aiAccount.connect for one member ([b2b471c](https://github.com/saeed9321/saidi/commit/b2b471ce34d20721ff88837659c8fb2039602504))
+* **platform:** let the operator erase a workspace, and land sign-ins in the app ([9582ad0](https://github.com/saeed9321/saidi/commit/9582ad082539f0009e22745d00023c0c6cac1803))
+* **providers:** sign in with your own subscription — OAuth + PKCE ([590812f](https://github.com/saeed9321/saidi/commit/590812ff8e9156a1bd1f58cc24abdee27ea3290a))
+* redesign landing page with new interactive UI components and update documentation structure ([94867fc](https://github.com/saeed9321/saidi/commit/94867fccd52a351eb5299cca34d43f89e82a5155))
+* **settings:** admin-configurable member sign-in + per-member isolation tests ([bb02bad](https://github.com/saeed9321/saidi/commit/bb02badddbedd72d8dc3f484d33b925e64266e8c))
+* **settings:** let an admin configure member sign-in instead of a dead end ([6e5e0fe](https://github.com/saeed9321/saidi/commit/6e5e0fe1422bf9edcb5c36d9e5af3d8b1c7f3469))
+* **settings:** let the platform owner choose what tool activity chat shows ([0173986](https://github.com/saeed9321/saidi/commit/0173986f6b0358f9383e0212eee68ea647490e91))
+* surface whose AI credential paid, on the run and under each message ([c6f82cc](https://github.com/saeed9321/saidi/commit/c6f82cc3887fa9612f9008102a96c6569567cf01))
+
+
+### Bug Fixes
+
+* **auth:** stop rejecting the empty issuer every OAuth signup passes ([045dc06](https://github.com/saeed9321/saidi/commit/045dc0627b9ed2f88a3b55551ec251a0b2458ce7))
+* **byo:** no silent plaintext at rest, no shared ChatGPT seat, durable disconnect ([e45b979](https://github.com/saeed9321/saidi/commit/e45b979fa89dcd812cd066658767b7d5e6265580))
+* **byo:** stop sending an output ceiling the Codex backend refuses ([6f8fd77](https://github.com/saeed9321/saidi/commit/6f8fd77ee2959dd4ac03178c04ae5e10320df10e))
+* **chat:** let PRIME read the files Said attaches ([d3a4ab4](https://github.com/saeed9321/saidi/commit/d3a4ab409b2326057b5a7fbd63318279d04100ab))
+* **client:** finish a sign-in the provider hands back to the member ([9ced331](https://github.com/saeed9321/saidi/commit/9ced33169c751bd925190917a6bc0f2374af74ee))
+* **client:** stop noopener faking a blocked sign-in tab ([3f49243](https://github.com/saeed9321/saidi/commit/3f49243355e2ba2f963ed185cadf875e3eff415d))
+* **cloud:** make the uid migration runnable, and stop it breaking agent scratch ([dde88db](https://github.com/saeed9321/saidi/commit/dde88db413617b025e96d6bc6da1d2be123a618b))
+* **cloud:** stop mongo-enable-auth.sh sourcing .env.cloud as shell ([c606a57](https://github.com/saeed9321/saidi/commit/c606a57d97d348554efe3c5db03ed646974eedaa))
+* **deploy:** point the 9router healthcheck at the endpoint that exists ([415895e](https://github.com/saeed9321/saidi/commit/415895e99398be4b734ecc3ae41e50019333f193))
+* **execution:** stop a gateway seat hanging when no model is pinned ([1d6dfee](https://github.com/saeed9321/saidi/commit/1d6dfeee2b5c4eb6195a8ba608b0a4b661776fe2))
+* fetch before resolving base branch, ensure up-to-date trees before committing, and enforce no-AI-attribution rules in sub-agent prompts ([1b9ba4b](https://github.com/saeed9321/saidi/commit/1b9ba4ba0798f8f56ad863bd2479ce5fbd990534))
+* **providers:** gate the OAuth callback on aiAccount.connect ([eb80318](https://github.com/saeed9321/saidi/commit/eb80318dfb1ce442080672335ac18fe58e62b634))
+* **providers:** name the admin who shared, and read a reset epoch as a clock ([1fea4f5](https://github.com/saeed9321/saidi/commit/1fea4f5cae8550178c8f9d5dda353a1e60bb2922))
+* resolve run asset file proofing, prevent database corruption from array padding, and improve error logging for API failures. ([1c5e6f5](https://github.com/saeed9321/saidi/commit/1c5e6f5d4e63cc7a108afe90188331b2987c2931))
+* **runs:** keep whose credential paid across a restart ([bdc1c13](https://github.com/saeed9321/saidi/commit/bdc1c138f3bd779a53b2c0a3e4efc18d084d6f10))
+* **settings:** save every setting, and stop claiming a restart that does nothing ([587c646](https://github.com/saeed9321/saidi/commit/587c646e1eee5442c75bf396b583c2fc50bdc6e0))
+
 ## [1.20.0](https://github.com/saeed9321/saidi/compare/v1.19.1...v1.20.0) (2026-08-05)
 
 
