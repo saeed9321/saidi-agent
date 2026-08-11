@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.23.0](https://github.com/saeed9321/saidi/compare/v1.22.0...v1.23.0) (2026-08-11)
+
+
+### Features
+
+* implement verdict feedback logic and add tests for run retry and effort dispatching ([5720b54](https://github.com/saeed9321/saidi/commit/5720b5480139a517a8985b6309e2c2c21ff68ed2))
+
 ## [1.22.0](https://github.com/saeed9321/saidi/compare/v1.21.0...v1.22.0) (2026-08-11)
 
 
