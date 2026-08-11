@@ -8,6 +8,18 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.22.0](https://github.com/saeed9321/saidi/compare/v1.21.0...v1.22.0) (2026-08-11)
+
+
+### Features
+
+* implement lazy loading for chat thread history with scroll-to-anchor persistence ([f813646](https://github.com/saeed9321/saidi/commit/f8136466151992336b65e767ae8b5b60407ae1f7))
+
+
+### Bug Fixes
+
+* explicitly set background color to transparent in file explorer rows to prevent rendering artifacts ([cb49b05](https://github.com/saeed9321/saidi/commit/cb49b0509c984ed5069888dd5521d9000c30eeca))
+
 ## [1.21.0](https://github.com/saeed9321/saidi/compare/v1.20.0...v1.21.0) (2026-08-10)
 
 
