@@ -8,6 +8,45 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.24.0](https://github.com/saeed9321/saidi/compare/v1.23.0...v1.24.0) (2026-08-19)
+
+
+### Features
+
+* automatically reopen finished runs when receiving a new message and add focus status hints to Telegram UI ([8a448f5](https://github.com/saeed9321/saidi/commit/8a448f5ed6372ff3f1f49eb45eaf5e11bf5a2090))
+* **billing:** credit enforcement is a live setting, and only gates the Saidi provider ([a54bd79](https://github.com/saeed9321/saidi/commit/a54bd791c23c4bf777b70dfa8b79a616cfc18cd0))
+* **cloud:** edit any workspace's settings from one screen ([c68795f](https://github.com/saeed9321/saidi/commit/c68795f2eacf4b7430f4213c3c4b02096e1a191c))
+* **cloud:** per-workspace settings overrides on top of one platform default ([585aeee](https://github.com/saeed9321/saidi/commit/585aeee9b2ae4936fcbdd0253d1da758f8f13560))
+* **cloud:** platform configuration disappears for everyone but the platform owner ([82ec7ff](https://github.com/saeed9321/saidi/commit/82ec7ff0771f38174531edab7c61877284215dc1))
+* **cloud:** provider and model controls are the platform owner's alone ([fd1aea2](https://github.com/saeed9321/saidi/commit/fd1aea2b8d226f3aa673a7fb7d6510bc17eb9127))
+* **cloud:** provider scope is explicit, workspace defaults are pinnable, Anthropic can't strand everyone ([8897d12](https://github.com/saeed9321/saidi/commit/8897d122d3ecb1e1107201523a6414dd7483ab68))
+* **cloud:** the machine room is the platform owner's alone ([3cf5f7b](https://github.com/saeed9321/saidi/commit/3cf5f7b6b8b390f994ab5aa222707f5a186a80ea))
+* **cloud:** the machine room is the platform owner's alone ([8a073de](https://github.com/saeed9321/saidi/commit/8a073de549a8731d1ff577ba47563b984926d864))
+* implement procedure learning engine, run event watchers, and memory tracing capabilities ([44c5158](https://github.com/saeed9321/saidi/commit/44c51580b40551f59458888c5927c9813bc20b63))
+* instruct model to use amend_plan for new work when the project plan is complete ([2b6cfd3](https://github.com/saeed9321/saidi/commit/2b6cfd31c9fa602765d4092637df21db18dbac9c))
+* **platform:** cross-org usage tracking — what the platform actually costs ([3c9e3bb](https://github.com/saeed9321/saidi/commit/3c9e3bbed03fcbff749d9c37ec7fa5561fc963d4))
+* **prompt:** forbid PRIME from executing anything itself, always delegate to forge ([6d52689](https://github.com/saeed9321/saidi/commit/6d52689eb9fa2b42d7922018087f202064be84f8))
+* replace fuzzy thread-based approval gate with explicit per-task authorization grants ([fade4e0](https://github.com/saeed9321/saidi/commit/fade4e08a21db87bad1609e687718b57619cf853))
+
+
+### Bug Fixes
+
+* **billing:** the org credit wallet no longer gates a member's own AI account ([5836ede](https://github.com/saeed9321/saidi/commit/5836ede537c8620e495139922efb9078cf711864))
+* **byo:** a personal AI account overrides the workspace provider, not blends with it ([f40a8c5](https://github.com/saeed9321/saidi/commit/f40a8c5dbf1a9648a8276c6d5d38711573760214))
+* **cloud:** platform scope must READ the platform, not the workspace you're in ([b5fbccc](https://github.com/saeed9321/saidi/commit/b5fbccc656ad06011fc6cc977a3980e3ed8a9aa9))
+* **cloud:** platform scope must READ the platform, not the workspace you're in ([2e631f9](https://github.com/saeed9321/saidi/commit/2e631f9cc8d4b5d0e7a675af9e563b675be60f94))
+* **cloud:** provider profiles follow the settings scope selector, not the active workspace ([c6cda6e](https://github.com/saeed9321/saidi/commit/c6cda6eef863a5d4e81dd89bfbd0f5a688ae9f69))
+* **ui:** make every page usable on a phone — run details, modals, tables ([86ac550](https://github.com/saeed9321/saidi/commit/86ac550f405fac973c355a1ed7492c0cad99f192))
+* **ui:** make every page usable on a phone — run details, modals, tables ([10a6601](https://github.com/saeed9321/saidi/commit/10a6601bb70c879390b33da0bb5bfa648275aea1))
+* **voice:** retry a failed media connect, and stop blaming the network ([bba43c2](https://github.com/saeed9321/saidi/commit/bba43c2309e5163e60152958d55e7616c86e5184))
+* **voice:** retry a failed media connect, and stop blaming the network ([6e4130e](https://github.com/saeed9321/saidi/commit/6e4130ec33eaf69c6a3e5cfdf8914c3d28f19905))
+
+
+### Performance Improvements
+
+* **queue:** messages typed in a row are one turn, not one turn each ([e541eb3](https://github.com/saeed9321/saidi/commit/e541eb3d1d7c0061c863cf86701c8af6a59ccf37))
+* **queue:** messages typed in a row are one turn, not one turn each ([e1da472](https://github.com/saeed9321/saidi/commit/e1da47250eb2d1ba4ec5ef3b8917e51a5967179d))
+
 ## [1.23.0](https://github.com/saeed9321/saidi/compare/v1.22.0...v1.23.0) (2026-08-11)
 
 
