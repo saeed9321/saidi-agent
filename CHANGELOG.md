@@ -8,6 +8,25 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.25.1](https://github.com/saeed9321/saidi/compare/v1.25.0...v1.25.1) (2026-09-05)
+
+
+### Bug Fixes
+
+* **build:** unbreak `npm run build` — annotate the 3 colours check:tokens flags ([88e6588](https://github.com/saeed9321/saidi/commit/88e6588c63d09e1ffab64f4a0d08ee17e9ac1128))
+
+## [1.25.0](https://github.com/saeed9321/saidi/compare/v1.24.0...v1.25.0) (2026-09-05)
+
+
+### Features
+
+* add throughput visualization component for daily job delivery and spend metrics ([c2238dc](https://github.com/saeed9321/saidi/commit/c2238dcc1e37c397c86aed5668c125638cd6a354))
+
+
+### Bug Fixes
+
+* resolve agent/project targets using consistent logic to ensure correct worktree paths for verification and log accurate timing metadata. ([eda2fe4](https://github.com/saeed9321/saidi/commit/eda2fe48bfaee43d9f39430f382e9396c2768476))
+
 ## [1.24.0](https://github.com/saeed9321/saidi/compare/v1.23.0...v1.24.0) (2026-08-19)
 
 
