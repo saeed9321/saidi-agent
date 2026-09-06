@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.25.2](https://github.com/saeed9321/saidi/compare/v1.25.1...v1.25.2) (2026-09-06)
+
+
+### Bug Fixes
+
+* **client:** roll back the v2 Studio redesign, keep the platform features it shipped with ([82dbe66](https://github.com/saeed9321/saidi/commit/82dbe66e7e67acff97a26e65ceed810f71968c65))
+* **client:** roll back the v2 Studio redesign, keep the platform features it shipped with ([0f11dba](https://github.com/saeed9321/saidi/commit/0f11dba14a1b7ec685052fda39b298e65605964e))
+
 ## [1.25.1](https://github.com/saeed9321/saidi/compare/v1.25.0...v1.25.1) (2026-09-05)
 
 
