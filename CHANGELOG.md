@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.26.0](https://github.com/saeed9321/saidi/compare/v1.25.2...v1.26.0) (2026-09-07)
+
+
+### Features
+
+* add cloud-autoupdate.sh script to handle automated deployment and health checks for cloud installations ([5c9293e](https://github.com/saeed9321/saidi/commit/5c9293ee8b78a8f97663d09cfd3b55d09dbcdb9d))
+
 ## [1.25.2](https://github.com/saeed9321/saidi/compare/v1.25.1...v1.25.2) (2026-09-06)
 
 
