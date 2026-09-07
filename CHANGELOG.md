@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.27.0](https://github.com/saeed9321/saidi/compare/v1.26.0...v1.27.0) (2026-09-07)
+
+
+### Features
+
+* add brain-tools-list test, upgrade claude-agent-sdk, and fix type assertions in runner tests ([9532637](https://github.com/saeed9321/saidi/commit/9532637387e7112469d48e06b8a8d5a163300de2))
+
 ## [1.26.0](https://github.com/saeed9321/saidi/compare/v1.25.2...v1.26.0) (2026-09-07)
 
 
