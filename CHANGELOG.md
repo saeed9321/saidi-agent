@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.28.0](https://github.com/saeed9321/saidi/compare/v1.27.0...v1.28.0) (2026-09-07)
+
+
+### Features
+
+* implement tool-search deferral for main-chat toolbelt to reduce prompt token usage and introduce dynamic instruction sections in system prompts. ([72d572b](https://github.com/saeed9321/saidi/commit/72d572b01f546b0fa580a61b53ec42906d558852))
+
 ## [1.27.0](https://github.com/saeed9321/saidi/compare/v1.26.0...v1.27.0) (2026-09-07)
 
 
