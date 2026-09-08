@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.28.1](https://github.com/saeed9321/saidi/compare/v1.28.0...v1.28.1) (2026-09-08)
+
+
+### Bug Fixes
+
+* **platform:** let the operator change a workspace's plan and seats ([393edbc](https://github.com/saeed9321/saidi/commit/393edbc6ca9ef56639b3ca3ae5e68a85408dcf22))
+
 ## [1.28.0](https://github.com/saeed9321/saidi/compare/v1.27.0...v1.28.0) (2026-09-07)
 
 
