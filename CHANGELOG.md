@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.29.0](https://github.com/saeed9321/saidi/compare/v1.28.1...v1.29.0) (2026-09-08)
+
+
+### Features
+
+* add agent ownership transfer to personal and configurable concurrent run limits for workspaces ([69be32e](https://github.com/saeed9321/saidi/commit/69be32edee50be7e4b1faf0e7250a0c783c034a2))
+
 ## [1.28.1](https://github.com/saeed9321/saidi/compare/v1.28.0...v1.28.1) (2026-09-08)
 
 
