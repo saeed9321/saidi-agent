@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.30.0](https://github.com/saeed9321/saidi/compare/v1.29.0...v1.30.0) (2026-09-08)
+
+
+### Features
+
+* add model connectivity testing and support manual model ID entry in AiAccount settings ([aed1edb](https://github.com/saeed9321/saidi/commit/aed1edb206ff1b7fbac1b955cf36bfa044fd1c27))
+* add usage.viewStats permission and include corresponding unit tests ([87bb1e7](https://github.com/saeed9321/saidi/commit/87bb1e7f44538fc3f1e48b011b74322ac3ab9e3d))
+
 ## [1.29.0](https://github.com/saeed9321/saidi/compare/v1.28.1...v1.29.0) (2026-09-08)
 
 
