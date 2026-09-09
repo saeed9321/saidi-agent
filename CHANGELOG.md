@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.32.1](https://github.com/saeed9321/saidi/compare/v1.32.0...v1.32.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* improve secret redaction for filesystem paths and resolve OAuth polling instability in ConnectSheet ([2b3a351](https://github.com/saeed9321/saidi/commit/2b3a351dd534cbc968a803500647da6fb2c12cdc))
+
 ## [1.32.0](https://github.com/saeed9321/saidi/compare/v1.31.0...v1.32.0) (2026-09-09)
 
 
