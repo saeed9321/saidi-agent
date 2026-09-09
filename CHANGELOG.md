@@ -8,6 +8,14 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.32.0](https://github.com/saeed9321/saidi/compare/v1.31.0...v1.32.0) (2026-09-09)
+
+
+### Features
+
+* enable image support by hoisting tool-returned images into subsequent user messages ([51b8d95](https://github.com/saeed9321/saidi/commit/51b8d953ff3a3c91b55dddb68d82166440955cd2))
+* rebuild Your AI Account with real 5-hour/weekly limits and a code sign-in for ChatGPT ([26af6b6](https://github.com/saeed9321/saidi/commit/26af6b6c5a8b0ef4bad6f72b4f38fea98fc808b7))
+
 ## [1.31.0](https://github.com/saeed9321/saidi/compare/v1.30.0...v1.31.0) (2026-09-09)
 
 
