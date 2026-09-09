@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.33.0](https://github.com/saeed9321/saidi/compare/v1.32.1...v1.33.0) (2026-09-09)
+
+
+### Features
+
+* pin ChatGPT requests to specific workspaces by passing the account ID header via codex-proxy ([c37db5f](https://github.com/saeed9321/saidi/commit/c37db5f7609b421f2a7293d3aebef847582bd747))
+
 ## [1.32.1](https://github.com/saeed9321/saidi/compare/v1.32.0...v1.32.1) (2026-09-09)
 
 
