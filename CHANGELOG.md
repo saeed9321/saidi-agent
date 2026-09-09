@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.31.0](https://github.com/saeed9321/saidi/compare/v1.30.0...v1.31.0) (2026-09-09)
+
+
+### Features
+
+* implement per-chat upload isolation and restricted file access management ([861d1a9](https://github.com/saeed9321/saidi/commit/861d1a997f257c04dffa12f6440ade2b2b954978))
+
 ## [1.30.0](https://github.com/saeed9321/saidi/compare/v1.29.0...v1.30.0) (2026-09-08)
 
 
