@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.35.0](https://github.com/saeed9321/saidi/compare/v1.34.0...v1.35.0) (2026-09-15)
+
+
+### Features
+
+* **runs:** implement follow-up Q&A and scoped read access ([3b500c8](https://github.com/saeed9321/saidi/commit/3b500c8d2ae4e9e0e7c5899c00c4ec92b6423d68))
+
 ## [1.34.0](https://github.com/saeed9321/saidi/compare/v1.33.0...v1.34.0) (2026-09-12)
 
 
