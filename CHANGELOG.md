@@ -8,6 +8,13 @@ The version in the root `package.json` is the single source of truth: bumping it
 with `npm version <patch|minor|major>` syncs `client/package.json` and stages
 this file automatically.
 
+## [1.36.0](https://github.com/saeed9321/saidi/compare/v1.35.0...v1.36.0) (2026-09-16)
+
+
+### Features
+
+* **orchestrator:** add manual update trigger via version badge ([a5869e8](https://github.com/saeed9321/saidi/commit/a5869e8755239e8c070daf5da8e86f3417ee60ca))
+
 ## [1.35.0](https://github.com/saeed9321/saidi/compare/v1.34.0...v1.35.0) (2026-09-15)
 
 
